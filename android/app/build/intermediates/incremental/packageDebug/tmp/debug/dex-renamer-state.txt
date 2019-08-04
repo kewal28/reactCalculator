@@ -1,0 +1,4 @@
+#Sun Aug 04 12:38:26 IST 2019
+base.0=/Volumes/Storage/react-native/reactCalculator/android/app/build/intermediates/transforms/dexMerger/debug/0
+renamed.0=classes.dex
+path.0=classes.dex
