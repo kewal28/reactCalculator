@@ -31,6 +31,13 @@ export default class App extends Component {
       calculationText: this.state.calculationText + text
     })
   }
+  
+  deleteAll = () => {
+    this.setState({
+      calculationText: "",
+      resultText: ""
+    })
+  }
 
   operate(operation) {
     switch (operation) {
@@ -107,8 +114,13 @@ export default class App extends Component {
 
     ops = []
     for (let i = 0; i < 5; i++) {
-      ops.push(<TouchableOpacity key={this.operations[i]} style={styles.btn} onPress={() => this.operate(this.operations[i])}>
+        if(this.operations[i] === "DEL") {
+        ops.push(<TouchableOpacity onLongPress={this.deleteAll} key={this.operations[i]} style={styles.btn} onPress={() => this.operate(this.operations[i])}>
         <Text style={[styles.btnopstext, styles.white]}>{this.operations[i]}</Text></TouchableOpacity>)
+      } else {
+        ops.push(<TouchableOpacity key={this.operations[i]} style={styles.btn} onPress={() => this.operate(this.operations[i])}>
+        <Text style={[styles.btnopstext, styles.white]}>{this.operations[i]}</Text></TouchableOpacity>)
+      }
     }
 
 
